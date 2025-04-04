@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "motor_control_v01.py", line 19, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.7/asyncio/runners.py", line 43, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.7/asyncio/base_events.py", line 584, in run_until_complete
+    return future.result()
+  File "motor_control_v01.py", line 17, in main
+    await client.run_custom_program(program=programA, title="motor_control_test")
+  File "/usr/lib/python3.7/vital/phoenix.py", line 88, in run_custom_program
+    return RunCustomProgramResponse(await self._request(RunCustomProgramRequest(**kwargs).request))
+  File "/usr/lib/python3.7/vital/client.py", line 142, in _request
+    response = await self._request_without_error(request_body)
+  File "/usr/lib/python3.7/vital/client.py", line 132, in _request_without_error
+    await self._websocket.send(json.dumps({"request_sequence": sequence, "request": request_body}))
+  File "/usr/lib/python3/dist-packages/websockets/protocol.py", line 462, in send
+    yield from self.ensure_open()
+  File "/usr/lib/python3/dist-packages/websockets/protocol.py", line 646, in ensure_open
+    ) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
